@@ -1,0 +1,48 @@
+import type { PartnershipSquareProps } from "../../../utils/fields";
+
+<style>
+  .partnershipSquare {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+    border: 1px solid lightgray;
+    background-color: #ffffff;
+    width: 280px;
+    height: 300px;
+    margin-top: 60px;
+    border-radius: 10px 10px 10px 10px;
+  }
+</style>
+<macro|props: PartnershipSquareProps| name="partnership-square">
+  <div class="partnershipSquare">
+    <img
+      src="../../pages/_index/LFLogoWhite.svg"
+      width="100%"
+      height="100%"
+      alt="partnership image"
+    >
+    <ebay-section-title>
+      <@title>${props.title}</@title>
+      <@subtitle>${props.desc}</@subtitle>
+    </ebay-section-title>
+    <a href=`${props.website}`>
+      website
+    </a>
+  </div>
+</macro>
+<partnership-square
+  title="Partnership 1"
+  desc="Description 1"
+  website="https://example.com"
+/>
+<partnership-square
+  title="Partnership 2"
+  desc="Description 2"
+  website="https://example.com"
+/>
+<partnership-square
+  title="Partnership 3"
+  desc="Description 3"
+  website="https://example.com"
+/>

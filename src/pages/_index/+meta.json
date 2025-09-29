@@ -1,0 +1,7 @@
+{
+  "pageName": "DefaultPage",
+  "title": "eBay Open Source",
+  "i18n": {
+    "preload": ["app/index"]
+  }
+}

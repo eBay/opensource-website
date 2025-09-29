@@ -1,0 +1,8 @@
+{
+  "brogan": {
+    "connectionCheck": false
+  },
+  "middleware": {
+    "logger": { "enabled": false }
+  }
+}
