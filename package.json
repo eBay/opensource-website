@@ -12,13 +12,15 @@
     "marko": "^6.0.0"
   },
   "devDependencies": {
-    "@marko/run": "^0.8.0"
+    "@marko/run": "^0.8.0",
+    "@marko/run-adapter-static": "^2.0.3",
+    "gh-pages": "^6.3.0"
   },
   "private": true,
   "scripts": {
     "dev": "marko-run",
     "build": "marko-run build",
     "preview": "marko-run preview",
-    "start": "node --enable-source-maps ./dist/index.mjs"
+    "deploy": "BASE_URL=/opensource-website/ marko-run build && gh-pages --nojekyll -d dist/public"
   }
 }
