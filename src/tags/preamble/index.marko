@@ -1,0 +1,156 @@
+<for|value| of=getRandomizedParams()>
+  <div style={
+    position: "absolute",
+    "background-color": value.color,
+    left: value.leftPosition,
+    bottom: value.bottomPosition,
+    width: value.heightWidth,
+    height: value.heightWidth,
+    animation: `squareFadeIn ${getRandomArbitrary(8, 12)}s infinite`,
+  }/>
+</for>
+<div style={ height: "70vh" }>
+  <p class="textPreamble">
+    Enabled by people.
+    <br>
+     Powered by technology.
+    <br>
+     Open to everyone.
+  </p>
+  <a href="#how-to" class="joinButton">
+    join the community
+  </a>
+</div>
+
+<style>
+  @keyframes textFadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes squareFadeIn {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  .textPreamble {
+    white-space: nowrap;
+    overflow: hidden;
+    animation: textFadeIn ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    font-size: 5em;
+    color: #333333;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    font-weight: bold;
+    color: black;
+  }
+  .joinButton {
+    animation: textFadeIn ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    position: absolute;
+    width: max-content;
+    bottom: 100px;
+    left: 1200px;
+  }
+</style>
+
+
+
+static const REDS: string[] = ["#fce7e8", "#f08d90", "#43080a"];
+static const BLUES: string[] = ["#9fcdff", "#3997ff", "#00336c"];
+static const YELLOWS: string[] = ["#ffeec2", "#ffd05c", "#8f6600"];
+static const GREENS: string[] = ["#dcf4a6", "#b8e94b", "#445d0b"];
+
+static interface RandomizedParam {
+  heightWidth: string;
+  color: string;
+  bottomPosition: string;
+  leftPosition: string;
+}
+
+static function getRandomChoice(choices: string[] | number[]) {
+  // choose a random integer or string from a list
+  const randomIndex = Math.floor(Math.random() * choices.length);
+  return choices[randomIndex];
+}
+
+static function getRandomSize() {
+  // get a random integer between 0-100
+  const i = Math.trunc(Math.random() * 100);
+  return i.toString() + "px";
+}
+
+static function getList(i: number, maxLength: number) {
+  // gets the correct list of colors based on how far (horizontal)
+  const quartile = Math.trunc(maxLength / 4);
+  const fourthQuartile = maxLength - quartile;
+  const secondQuartile = maxLength - quartile * 2;
+  const firstQuartile = maxLength - quartile * 3;
+  if (i > fourthQuartile) {
+    return GREENS;
+  } else if (i > secondQuartile) {
+    return YELLOWS;
+  } else if (i > firstQuartile) {
+    return BLUES;
+  } else {
+    return REDS;
+  }
+}
+static function getLeftPosition(i: number) {
+  // adds dithering from left/right as squares are added
+  const choice = getRandomChoice([-5, -4, -3, -2, 2, 3, 4, 5]);
+  return (i * 13 + Number(choice)).toString() + "px";
+}
+
+static function getRandomArbitrary(min: number, max: number) {
+  return Math.trunc(Math.random() * (max - min) + min);
+}
+
+static function getBottomPosition(i: number, max: number) {
+  var position = 0;
+  // keeps first 2 colors to the left & second 2 colors to the right
+  if (i > max / 2) {
+    position = getRandomArbitrary(200, 500);
+  } else {
+    position = getRandomArbitrary(0, 300);
+  }
+  return position + "px";
+}
+
+static function getRandomizedParams() {
+  const params: RandomizedParam[] = [];
+  const max = 120; // max can be larger for a wider page
+  for (let i = 5; i < max; i++) {
+    // 5 is an arbitrary # used to buffer
+    // color
+    const colorList = getList(i, max);
+    const color = getRandomChoice(colorList).toString();
+    // height/width
+    const size = getRandomSize();
+    // positioning
+    const leftPosition = getLeftPosition(i);
+    const bottomPosition = getBottomPosition(i, max);
+    // add obj
+    const param: RandomizedParam = {
+      heightWidth: size,
+      color: color,
+      leftPosition: leftPosition,
+      bottomPosition: bottomPosition,
+    };
+    params.push(param);
+  }
+  return params;
+}

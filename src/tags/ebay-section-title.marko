@@ -1,0 +1,55 @@
+export interface Input extends Omit<Marko.HTML.Div, "title"> {
+  ctaText?: string;
+  href?: string;
+  title?: Marko.AttrTag<Marko.HTML.H2>
+  subtitle?: Marko.AttrTag<Marko.HTML.Span>;
+  info?: Marko.AttrTag<Marko.HTML.Div>;
+  overflow?: Marko.AttrTag<Marko.HTML.Div>;
+}
+
+<const/{
+    ctaText = "See All",
+    class: inputClass,
+    href,
+    title,
+    subtitle,
+    info,
+    overflow,
+    content,
+    ...htmlInput
+}=input>
+
+<div ...htmlInput class=["section-title", inputClass]>
+    <div class="section-title__title-container">
+        <h2 class="section-title__title">
+            <${title || content}/>
+        </h2>
+        <if=subtitle>
+            <span
+                ...subtitle
+                class=["section-title__subtitle", subtitle.class]
+            />
+        </if>
+    </div>
+    <if=info>
+        <div
+            ...info
+            class=["section-title__info", info.class]
+        />
+    </if>
+    <if=href>
+        <div class="section-title__cta">
+            <a href=href>
+                <span class="section-title__cta-text">
+                    ${ctaText}
+                </span>
+            </a>
+        </div>
+    </if>
+    <if=overflow>
+        <div
+            ...overflow
+            class=["section-title__overflow", overflow.class]
+        />
+    </if>
+</div>

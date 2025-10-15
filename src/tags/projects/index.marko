@@ -1,0 +1,92 @@
+<define|props: {
+  title: string;
+  desc: string;
+  langs: string[];
+  website: string;
+}|/Square>
+  <div class="projectSquare">
+    <div class="link">
+      <a href=props.website>
+        // <ebay-move-24-icon
+        //   style={ transform: `scaleX(-1)` }
+        //   class="websiteArrow"
+        // />
+      </a>
+    </div>
+    <div class="centerImg">
+      <img
+        src="./marko-logo.png"
+        width="120px"
+        height="100px"
+        alt="project image"
+      >
+    </div>
+    <ebay-section-title>
+      <@title>${props.title}</@title>
+      <@subtitle>${props.desc}</@subtitle>
+    </ebay-section-title>
+    <div class="langSection">
+      <for|lang, i| of=props.langs>
+        ${lang}
+        // <ebay-chip style={ margin: "2px" }>
+        //   ${lang}
+        // </ebay-chip>
+      </for>
+    </div>
+  </div>
+</define>
+
+<Square
+  title="Project 1"
+  desc="Description 1"
+  langs=["JavaScript", "TypeScript"]
+  website="https://example.com"
+/>
+<Square
+  title="Project 2"
+  desc="Description 2"
+  langs=["Python", "C#"]
+  website="https://example.com"
+/>
+<Square
+  title="Project 3"
+  desc="Description 3"
+  langs=["SQL", "Java", "Swift", "COBOL", "ECMAScript", "Scratch"]
+  website="https://example.com"
+/>
+
+<style>
+  .websiteArrow {
+    width: 10px;
+    height: 10px;
+    margin-left: auto;
+    margin-right: 0;
+    float: right;
+  }
+  .link {
+    width: 100%;
+  }
+  .centerImg {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }
+  .projectSquare {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+    border: 1px solid lightgray;
+    background-color: #ffffff;
+    width: 280px;
+    height: 300px;
+    margin-top: 60px;
+    border-radius: 10px 10px 10px 10px;
+  }
+  .langSection {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-bottom: 20px;
+  }
+</style>
