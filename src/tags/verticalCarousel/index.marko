@@ -1,0 +1,79 @@
+<let/aspect=null as null | "projects" | "partnerships" | "media" | "howTo">
+
+<div>
+  <div class="threeThirds">
+    <div class="leftThird">
+      <div onClick() { aspect = "projects"} tabindex="1" class="leftRow">
+        <div style={ margin: "25px" }>
+          <ebay-section-title>
+            <@title>Projects</@title>
+            <if=(aspect === "projects")>
+              <@subtitle style={ color: "black" }>
+                Some of my projects
+              </@subtitle>
+            </if>
+          </ebay-section-title>
+        </div>
+      </div>
+      <div onClick() { aspect = "media"} tabindex="2" class="leftRow">
+        <div style={ margin: "25px" }>
+          <ebay-section-title>
+            <@title>Media</@title>
+            <if=(aspect === "media")>
+
+              <@subtitle style={ color: "black" }>
+                Some media & blogs
+              </@subtitle>
+            </if>
+          </ebay-section-title>
+        </div>
+      </div>
+      <div onClick() { aspect = "partnerships" } tabindex="3" class="leftRow">
+        <div style={ margin: "25px" }>
+          <ebay-section-title>
+            <@title>Partnerships</@title>
+            <if=(aspect === "partnerships")>
+
+              <@subtitle style={ color: "black" }>
+                Some of my partnerships
+              </@subtitle>
+            </if>
+          </ebay-section-title>
+        </div>
+      </div>
+      <div id="how-to" onClick() { aspect = "howTo" } tabindex="4" class="leftRow">
+        <div style={ margin: "25px" }>
+          <ebay-section-title>
+            <@title>Getting Started</@title>
+            <if=(aspect === "howTo")>
+
+              <@subtitle style={ color: "black" }>
+                How to get contribute
+              </@subtitle>
+            </if>
+          </ebay-section-title>
+        </div>
+      </div>
+    </div>
+    <if=(aspect === "projects")>
+      <div class="projects">
+        <projects/>
+      </div>
+    </if>
+    <else-if=(aspect === "media")>
+      <div class="media">
+        <media/>
+      </div>
+    </else-if>
+    <else-if=(aspect === "partnerships")>
+      <div class="partnerships">
+        <partnerships/>
+      </div>
+    </else-if>
+    <else-if=(aspect === "howTo")>
+      <div class="howto">
+        <howto/>
+      </div>
+    </else-if>
+  </div>
+</div>

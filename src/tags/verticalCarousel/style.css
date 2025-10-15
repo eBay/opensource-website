@@ -1,0 +1,181 @@
+:root {
+  --ebayred: rgb(229, 50, 56, 1);
+  --ebayredhalf: rgb(224, 133, 136);
+  --ebayblue: rgb(0, 100, 210, 1);
+  --ebaybluehalf: rgb(103, 151, 202);
+  --ebayyellow: rgb(245, 175, 0, 1);
+  --ebayyellowhalf: rgb(246, 209, 116);
+  --ebaygreen: rgb(134, 184, 22, 1);
+  --ebaygreenhalf: rgb(146, 175, 84);
+  --ebaygray: rgb(247, 247, 247);
+}
+.threeThirds {
+  margin: auto;
+  height: 600px;
+  width: 90vw;
+  justify-content: space-between;
+}
+.leftThird {
+  width: 20%;
+  float: left;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--ebaygray);
+  border-radius: 10px 10px 10px 10px;
+}
+.projects,
+.media,
+.partnerships,
+.howto,
+.null {
+  width: 75%;
+  height: 100%;
+  float: right;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-radius: 10px 10px 10px 10px;
+  justify-content: space-evenly;
+}
+.leftRow {
+  text-align: left;
+  width: 100%;
+  float: left;
+  transition: all 1s ease;
+  transition-property: background-color max-height;
+  background-color: var(--ebaygray);
+  height: 100px;
+}
+.leftRow:nth-child(1) {
+  border-radius: 10px 10px 0px 0px;
+}
+.leftRow:nth-child(4) {
+  border-radius: 0px 0px 10px 10px;
+}
+.leftRow:hover:nth-child(1) {
+  height: 500px;
+  background-color: var(--ebayredhalf);
+}
+.leftRow:hover:nth-child(2) {
+  height: 500px;
+  background-color: var(--ebaybluehalf);
+}
+.leftRow:hover:nth-child(3) {
+  height: 500px;
+  background-color: var(--ebayyellowhalf);
+}
+.leftRow:hover:nth-child(4) {
+  height: 500px;
+  background-color: var(--ebaygreenhalf);
+}
+.leftRow:focus:nth-child(1),
+.leftRow:active:nth-child(1) {
+  height: 500px;
+  background-color: var(--ebayred);
+}
+.leftRow:focus:nth-child(2),
+.leftRow:active:nth-child(2) {
+  height: 500px;
+  background-color: var(--ebayblue);
+}
+.leftRow:focus:nth-child(3),
+.leftRow:active:nth-child(3) {
+  height: 500px;
+  background-color: var(--ebayyellow);
+}
+.leftRow:focus:nth-child(4),
+.leftRow:active:nth-child(4) {
+  height: 500px;
+  background-color: var(--ebaygreen);
+}
+@keyframes projects {
+  0% {
+    background-color: var(--ebayredhalf);
+  }
+  100% {
+    background-color: var(--ebayred);
+  }
+}
+.projects {
+  animation-name: projects;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  background-color: var(--ebayred);
+}
+@keyframes media {
+  0% {
+    background-color: var(--ebaybluehalf);
+  }
+  100% {
+    background-color: var(--ebayblue);
+  }
+}
+.media {
+  animation-name: media;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  background-color: var(--ebayblue);
+}
+@keyframes partnerships {
+  0% {
+    background-color: var(--ebayyellowhalf);
+  }
+  100% {
+    background-color: var(--ebayyellow);
+  }
+}
+.partnerships {
+  animation-name: partnerships;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  background-color: var(--ebayyellow);
+}
+@keyframes howto {
+  0% {
+    background-color: var(--ebaygreenhalf);
+  }
+  100% {
+    background-color: var(--ebaygreen);
+  }
+}
+.howto {
+  animation-name: howto;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  background-color: var(--ebaygreen);
+}
+@keyframes blackwhite {
+  0% {
+    background-color: var(--ebaygray);
+  }
+  20% {
+    background-color: rgb(215, 165, 167);
+  }
+  30% {
+    background-color: var(--ebaygray);
+  }
+  40% {
+    background-color: rgb(148, 169, 192);
+  }
+  50% {
+    background-color: var(--ebaygray);
+  }
+  60% {
+    background-color: rgb(246, 230, 190);
+  }
+  70% {
+    background-color: var(--ebaygray);
+  }
+  80% {
+    background-color: rgb(177, 192, 146);
+  }
+  100% {
+    background-color: var(--ebaygray);
+  }
+}
+.null {
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-name: blackwhite;
+}

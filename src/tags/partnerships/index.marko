@@ -1,0 +1,51 @@
+<define/Square|props: {
+  title: string;
+  desc: string;
+  website: string;
+}|>
+  <div class="partnershipSquare">
+    <img
+      src="./LFLogoWhite.svg"
+      width="100%"
+      height="100%"
+      alt="partnership image"
+    >
+    <ebay-section-title>
+      <@title>${props.title}</@title>
+      <@subtitle>${props.desc}</@subtitle>
+    </ebay-section-title>
+    <a href=`${props.website}`>
+      website
+    </a>
+  </div>
+</define>
+<Square
+  title="Partnership 1"
+  desc="Description 1"
+  website="https://example.com"
+/>
+<Square
+  title="Partnership 2"
+  desc="Description 2"
+  website="https://example.com"
+/>
+<Square
+  title="Partnership 3"
+  desc="Description 3"
+  website="https://example.com"
+/>
+
+<style>
+  .partnershipSquare {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+    border: 1px solid lightgray;
+    background-color: #ffffff;
+    width: 280px;
+    height: 300px;
+    margin-top: 60px;
+    border-radius: 10px 10px 10px 10px;
+  }
+</style>
